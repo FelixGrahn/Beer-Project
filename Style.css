@@ -1,0 +1,17 @@
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 30rem;
+  
+  }
+  
+  .grid-item {
+    background-color: blue;
+  }
+  
+  .grid-item-2 {
+    background-color: yellow;
+  }
+  

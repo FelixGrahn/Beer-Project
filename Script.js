@@ -1,6 +1,6 @@
 console.log("test")
 
-RandomNumber();
+/* RandomNumber(); */
 
 async function RandomNumber() {
     let random = Math.floor(Math.random() * 10) + 1;
@@ -43,7 +43,7 @@ async function writeBeerInfo(url) {
 }
 
 async function fetchimage(url) {
-    let imageurl = url.image_url;
+    let imageurl = url[0].image_url;
     fetch(imageurl)
     .then(response => response.json())
     .then(image => {

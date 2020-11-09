@@ -1,3 +1,14 @@
+
+/* Description
+Image
+Alcohol by volume
+Volume
+Ingredients
+Hops
+Food pairing
+Brewers tips */
+
+
 console.log("test")
 
 /* RandomNumber(); */
@@ -31,8 +42,6 @@ async function fetchBeer(number){
         writeBeerInfo(url)
         
     } );
-
-    
 }
 
 
@@ -46,13 +55,13 @@ async function removebox() {
     else {
         console.log("The object has not been found")
     }
-    
 }
 
 async function writeBeerInfo(url) {
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
+    let img = document.createElement("IMG");
     /* writeboxinfo.innerHTML = (
         url.image_url
     ) */
@@ -61,11 +70,19 @@ async function writeBeerInfo(url) {
         url[0].name +
         url[0].description
     )
-    writebox.appendChild(writeboxinfo);
+
     console.log("connection succses")
     /* console.log(url) */
-    
+    writeBoxInfo.appendChild(img);
+    img.src = url[0].image_url;
+    img.height = 400;
+    img.width = 200;
+
+    writebox.appendChild(writeBoxInfo);
 }
+
+
+
 
 async function fetchimage(url) {
     let imageurl = url[0].image_url;

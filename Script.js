@@ -1,12 +1,10 @@
 
-/* Description
-Image
-Alcohol by volume
-Volume
-Ingredients
-Hops
-Food pairing
-Brewers tips */
+/* LOUIES UPPGIFT:
+ contentContainer
+ Bild åt vänster
+ Titel, högt upp höger om bild
+ Länk, nere i högra hörnet */
+
 
 
 console.log("test")
@@ -58,49 +56,27 @@ async function removebox() {
 }
 
 async function writeBeerInfo(url) {
+
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
-    writeboxinfo.setAttribute("id", "RemoveChild");
     let img = document.createElement("IMG");
-    /* writeboxinfo.innerHTML = (
-        url.image_url
-    ) */
+
     writeboxinfo.innerText = (
-        /* fetchimage(url) + */
         url[0].name +
         url[0].description
     )
 
-    console.log("connection succses")
-    /* console.log(url) */
-    writeBoxInfo.appendChild(img);
     img.src = url[0].image_url;
     img.height = 400;
     img.width = 200;
 
-    writebox.appendChild(writeBoxInfo);
+    writeboxinfo.appendChild(img);
+    writebox.appendChild(writeboxinfo);
 }
 
 
 
 
-async function fetchimage(url) {
-    let imageurl = url[0].image_url;
-    fetch(imageurl)
-    .then(response => response.json())
-    .then(image => {
-        return(image)
-    } );
-}
-
-async function writeingridients(url) {
-
-    for (let index = 0; index < url.ingredients.length; index++) {
-        
-        
-    }
-    
-}
 
 
  

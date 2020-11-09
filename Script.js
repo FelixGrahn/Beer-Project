@@ -25,9 +25,23 @@ async function fetchBeer(number){
     
 }
 
+
+async function removebox() {
+    let ExistensChecker = document.getElementById("RemoveChild");
+    if (ExistensChecker) {
+        console.log("The object has been found and removed")
+        ExistensChecker2.innerHTML = "";
+    } 
+    else {
+        console.log("The object has not been found")
+    }
+    
+}
+
 async function writeBeerInfo(url) {
     let writebox = document.querySelector(".grid-item-2");
     let writeboxinfo = document.createElement("section");
+    writeboxinfo.setAttribute("id", "RemoveChild");
     /* writeboxinfo.innerHTML = (
         url.image_url
     ) */

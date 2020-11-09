@@ -11,13 +11,23 @@ async function RandomNumber() {
 
 async function fetchBeer(number){
 
+    let ExistensChecker = document.getElementById("RemoveChild");
+    let ExistensChecker2 = document.getElementById("Parent");
+    if (ExistensChecker) {
+        console.log("The object has been found and removed")
+        ExistensChecker2.innerHTML = "";
+    } 
+    else {
+        console.log("The object has not been found")
+    }
+
     fetch("https://api.punkapi.com/v2/beers/" + number)
     .then(response => response.json())
     .then(url => {
-        console.log(url)
+        /* console.log(url)
         console.log(url[0].description)
         console.log(url[0].image_url)
-        console.log(url[0].name)
+        console.log(url[0].name) */
         writeBeerInfo(url)
         
     } );
@@ -28,6 +38,7 @@ async function fetchBeer(number){
 
 async function removebox() {
     let ExistensChecker = document.getElementById("RemoveChild");
+    let ExistensChecker2 = document.getElementById("Parent");
     if (ExistensChecker) {
         console.log("The object has been found and removed")
         ExistensChecker2.innerHTML = "";
@@ -39,7 +50,7 @@ async function removebox() {
 }
 
 async function writeBeerInfo(url) {
-    let writebox = document.querySelector(".grid-item-2");
+    let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
     /* writeboxinfo.innerHTML = (

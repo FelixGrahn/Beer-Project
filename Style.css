@@ -9,9 +9,42 @@
   
   .grid-item {
     background-color: blue;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .ButtonRandomNumber {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* height: 5%; */
   }
   
   .grid-item-2 {
-    background-color: lightgreen;
+    background-color: rgb(99, 119, 99);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .BeerInfoContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* width: 50%;
+    height: 50%;
+    border: 2px solid black; */
+  }
+
+  .RemoveChild {
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
   
+  .item-box {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }

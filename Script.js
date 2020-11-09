@@ -20,23 +20,15 @@ async function RandomNumber() {
 
 async function fetchBeer(number){
 
-    let ExistensChecker = document.getElementById("RemoveChild");
-    let ExistensChecker2 = document.getElementById("Parent");
-    if (ExistensChecker) {
-        console.log("The object has been found and removed")
-        ExistensChecker2.innerHTML = "";
-    } 
-    else {
-        console.log("The object has not been found")
-    }
+    removebox();
 
     fetch("https://api.punkapi.com/v2/beers/" + number)
     .then(response => response.json())
     .then(url => {
-        /* console.log(url)
+        console.log(url)
         console.log(url[0].description)
         console.log(url[0].image_url)
-        console.log(url[0].name) */
+        console.log(url[0].name)
         writeBeerInfo(url)
         
     } );
@@ -59,11 +51,17 @@ async function writeBeerInfo(url) {
 
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
+    writeboxinfo.setAttribute("id", "RemoveChild");
     let img = document.createElement("IMG");
-
     writeboxinfo.innerText = (
-        url[0].name +
-        url[0].description
+        url[0].name + "\r\n" +
+        "\r\nAlcohol by volume: " + url[0].alcohol_by_volume + "\r\n" +
+        "\r\nVolume: " + url[0].volume.value + "%\r\n" +
+        "\r\nIngredients: " + url[0].ingredients + "\r\n" +
+        "\r\nHops: " + url[0].hops + "\r\n" +
+        "\r\nFood pairing: " + url[0].food_pairing + "\r\n" +
+        "\r\nBrewers tips: " + url[0].brewers_tips + "\r\n" +
+        "\r\nDescription: " + url[0].description
     )
 
     img.src = url[0].image_url;
@@ -71,6 +69,16 @@ async function writeBeerInfo(url) {
     img.width = 200;
 
     writeboxinfo.appendChild(img);
+
+    /* Description
+Image
+Alcohol by volume
+Volume
+Ingredients
+Hops
+Food pairing
+Brewers tips */
+
     writebox.appendChild(writeboxinfo);
 }
 

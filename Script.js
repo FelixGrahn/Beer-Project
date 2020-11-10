@@ -16,7 +16,8 @@ async function RandomNumber() {
     .then(url => {
         removebox();
         console.log(url)
-        writeBeerInfo(url)
+        /* writeBeerInfo(url) */
+        createCard(url);
         
     } );
 }
@@ -115,6 +116,8 @@ async function createimage(url, location) {
     let img = document.createElement("IMG");
     img.classList.add(location + "img");
     img.src = url[0].image_url;
+    img.height = 400;
+    img.width = 200;
     imagelocation.appendChild(img);
     
 }

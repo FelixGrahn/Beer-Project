@@ -44,6 +44,16 @@ h1 {
     flex-direction: column;
     text-align: center;
     background-color: blue;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .ButtonRandomNumber {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* height: 5%; */
   }
   
   .grid-item-2 {
@@ -51,8 +61,6 @@ h1 {
     background-color: lightgreen;
   }
 
-
-  .BeerInfoContainer {}
 
   .BeerInfoGridBox {
     display: grid;
@@ -62,3 +70,23 @@ h1 {
                         
   }
 
+  .BeerInfoContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* width: 50%;
+    height: 50%;
+    border: 2px solid black; */
+  }
+
+  .RemoveChild {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .item-box {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }

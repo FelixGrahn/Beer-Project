@@ -11,12 +11,17 @@
 
 
 async function RandomNumber() {
-
-    let random = Math.floor(Math.random() * 10) + 1;
-    fetchBeer(random);
+    fetch("https://api.punkapi.com/v2/beers/random")
+    .then(response => response.json())
+    .then(url => {
+        removebox();
+        console.log(url)
+        writeBeerInfo(url)
+        
+    } );
 }
 
-async function fetchBeer(number){
+async function fetchBeer(number){ /* to be continued */
 
     removebox();
 
@@ -81,24 +86,61 @@ async function writeBeerInfo(url) {
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
-    let img = document.createElement("IMG");
+    writeboxinfo.classList.add("writeBeerInfo");
+    
+    /* ingredients(url) */
     writeboxinfo.innerText = (
         url[0].name + "\r\n" +
         "\r\nAlcohol by volume: " + url[0].alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url[0].volume.value + "%\r\n" +
-        "\r\nIngredients: " + url[0].ingredients + "\r\n" +
+        "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
         "\r\nHops: " + url[0].hops + "\r\n" +
         "\r\nFood pairing: " + url[0].food_pairing + "\r\n" +
         "\r\nBrewers tips: " + url[0].brewers_tips + "\r\n" +
         "\r\nDescription: " + url[0].description
     )
+    /* Description
+Image
+Alcohol by volume
+Volume
+Ingredients
+Hops
+Food pairing
+Brewers tips */
 
-    img.src = url[0].image_url;
-    img.height = 400;
-    img.width = 200;
-
-    writeboxinfo.appendChild(img);
     writebox.appendChild(writeboxinfo);
+    createimage(url, writeBeerInfo)
+}
+
+async function createimage(url, location) {
+    let imagelocation = document.querySelector("." + location);
+    let img = document.createElement("IMG");
+    img.src = url[0].image_url;
+    imagelocation.appendChild(img);
+    
+}
+
+async function ingredients(url) {
+    for (let Index = 0; Index < 1/* url[0].ingredients.length */; Index++) {
+        if (/* Index < 1 */ url[0].ingredients[Index] == url[0].ingredients[Index].malt) {
+            for (let index = 0; index < url[0].ingredients[Index].hops[index].length; index++) {
+                console.log("hops item " + index)
+            }
+            /* console.log(index) */
+        }
+        if (/* Index > 0 */ url[0].ingredients[Index].malt == true) {
+            for (let index = 0; index < url[0].ingredients[Index].malt[index].length; index++) {
+                console.log("malt item " + index)
+            }
+            console.log(index)
+        }
+        else {
+            console.log("something has gone wrong in the ingredients loop")
+        }
+        
+    }
+    console.log("what?")
+    
 }
 
 

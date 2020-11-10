@@ -1,17 +1,64 @@
 
 
-.main-grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 30rem;
+
+body {
+  background-color:#dcdcdc;
+}
+
+.main-container {
+  display: flex;
+  height: 30rem;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  height: 1080px;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
   
+  
+
+h1 {
+    justify-content: center;
+    display: flex;
+
+}
+
+  .input-box {
+    background-color: white;
+
+  }
+
+  form {
+    justify-content: center;
+    display: flex;
+    margin-top: 9rem;
+    height: 2rem;
   }
   
   .grid-item {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     background-color: blue;
   }
   
   .grid-item-2 {
+    flex-grow: 2;
     background-color: lightgreen;
   }
-  
+
+
+  .BeerInfoContainer {}
+
+  .BeerInfoGridBox {
+    display: grid;
+    height: 500px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10rem 10rem 10rem;
+                        
+  }
+

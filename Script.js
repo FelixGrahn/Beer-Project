@@ -7,14 +7,12 @@
 
 
 
-console.log("test")
 
-/* RandomNumber(); */
+
 
 async function RandomNumber() {
+
     let random = Math.floor(Math.random() * 10) + 1;
-    console.log(random);
-    
     fetchBeer(random);
 }
 
@@ -25,24 +23,55 @@ async function fetchBeer(number){
     fetch("https://api.punkapi.com/v2/beers/" + number)
     .then(response => response.json())
     .then(url => {
-        console.log(url)
+
+/*      console.log(url)
         console.log(url[0].description)
         console.log(url[0].image_url)
-        console.log(url[0].name)
-        writeBeerInfo(url)
-        
+        console.log(url[0].name) */
+        createCard(url)
     } );
 }
 
+async function createCard(url){ // LOUIES UPPGIFT
+
+    let writebox = document.querySelector(".BeerInfoContainer");
+    let writeboxinfo = document.createElement("section");
+    writeboxinfo.setAttribute("id", "RemoveChild");
+    let img = document.createElement("IMG");
+    writeboxinfo.innerText = (url[0].name + "\r\n")
+
+    img.src = url[0].image_url;
+    img.height = 400;
+    img.width = 200;
+
+    writeboxinfo.addEventListener("click", function(){
+
+        removebox();
+        writeBeerInfo(url);
+
+        console.log("XXXXXXXXXXXXX")
+    })    
+
+    writeboxinfo.appendChild(img);
+    writebox.appendChild(writeboxinfo);
+}
+
+// inte bilden, titeln, eventet som kallar en funktion
+"skapa objektet med kort och namn"
+
 
 async function removebox() {
+
     let ExistensChecker = document.getElementById("RemoveChild");
     let ExistensChecker2 = document.getElementById("Parent");
+
     if (ExistensChecker) {
+
         console.log("The object has been found and removed")
         ExistensChecker2.innerHTML = "";
     } 
     else {
+
         console.log("The object has not been found")
     }
 }
@@ -69,20 +98,8 @@ async function writeBeerInfo(url) {
     img.width = 200;
 
     writeboxinfo.appendChild(img);
-
-    /* Description
-Image
-Alcohol by volume
-Volume
-Ingredients
-Hops
-Food pairing
-Brewers tips */
-
     writebox.appendChild(writeboxinfo);
 }
-
-
 
 
 

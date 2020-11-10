@@ -42,23 +42,20 @@ async function createCard(url){ // LOUIES UPPGIFT
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
-    let img = document.createElement("IMG");
+    writeboxinfo.classList.add("cardcreateinfo");
     writeboxinfo.innerText = (url[0].name + "\r\n")
-
-    img.src = url[0].image_url;
-    img.height = 400;
-    img.width = 200;
 
     writeboxinfo.addEventListener("click", function(){
 
-        removebox();
+
         writeBeerInfo(url);
 
         console.log("XXXXXXXXXXXXX")
     })    
 
-    writeboxinfo.appendChild(img);
+    
     writebox.appendChild(writeboxinfo);
+    createimage(url, "cardcreateinfo")
 }
 
 // inte bilden, titeln, eventet som kallar en funktion
@@ -82,6 +79,7 @@ async function removebox() {
 }
 
 async function writeBeerInfo(url) {
+    removebox();
 
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
@@ -115,6 +113,7 @@ Brewers tips */
 async function createimage(url, location) {
     let imagelocation = document.querySelector("." + location);
     let img = document.createElement("IMG");
+    img.classList.add(location + "img");
     img.src = url[0].image_url;
     imagelocation.appendChild(img);
     

@@ -1,19 +1,31 @@
 
+/* LOUIES UPPGIFT:
+ contentContainer
+ Bild åt vänster
+ Titel, högt upp höger om bild
+ Länk, nere i högra hörnet */
+
+// Hhej
+
+
+
+
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
     .then(url => {
-        removeBox();
+        removebox();
         console.log(url)
         /* console.log(log[0].ingredients[0].hops[0]) */
         /* writeBeerInfo(url) */
         createCard(url);
+        
     } );
 }
 
 async function fetchBeer(number){ /* to be continued */
 
-    removeBox();
+    removebox();
 
     fetch("https://api.punkapi.com/v2/beers/" + number)
     .then(response => response.json())
@@ -27,24 +39,32 @@ async function fetchBeer(number){ /* to be continued */
     } );
 }
 
-async function createCard(url){
+async function createCard(url){ // LOUIES UPPGIFT
 
-    let writeBox = document.querySelector(".BeerInfoContainer");
-    let writeBoxInfo = document.createElement("section");
-    writeBoxInfo.setAttribute("id", "RemoveChild");
-    writeBoxInfo.classList.add("cardcreateinfo");
-    writeBoxInfo.innerText = (url[0].name + "\r\n");
+    let writebox = document.querySelector(".BeerInfoContainer");
+    let writeboxinfo = document.createElement("section");
+    writeboxinfo.setAttribute("id", "RemoveChild");
+    writeboxinfo.classList.add("cardcreateinfo");
+    writeboxinfo.innerText = (url[0].name + "\r\n")
 
-    writeBoxInfo.addEventListener("click", function(){
+    writeboxinfo.addEventListener("click", function(){
+
 
         writeBeerInfo(url);
+
+        console.log("XXXXXXXXXXXXX")
     })    
-  
-    writeBox.appendChild(writeBoxInfo);
-    createImage(url, "cardcreateinfo")
+
+    
+    writebox.appendChild(writeboxinfo);
+    createimage(url, "cardcreateinfo")
 }
 
-async function removeBox() {
+// inte bilden, titeln, eventet som kallar en funktion
+"skapa objektet med kort och namn"
+
+
+async function removebox() {
 
     let ExistensChecker = document.getElementById("RemoveChild");
     let ExistensChecker2 = document.getElementById("Parent");
@@ -61,15 +81,15 @@ async function removeBox() {
 }
 
 async function writeBeerInfo(url) {
-    removeBox();
+    removebox();
 
-    let writeBox = document.querySelector(".BeerInfoContainer");
-    let writeBoxInfo = document.createElement("section");
-    writeBoxInfo.setAttribute("id", "RemoveChild");
-    writeBoxInfo.classList.add("writeBeerInfo");
+    let writebox = document.querySelector(".BeerInfoContainer");
+    let writeboxinfo = document.createElement("section");
+    writeboxinfo.setAttribute("id", "RemoveChild");
+    writeboxinfo.classList.add("writeBeerInfo");
     
     /* ingredients(url) */
-    writeBoxInfo.innerText = (
+    writeboxinfo.innerText = (
         url[0].name + "\r\n" +
         "\r\nAlcohol by volume: " + url[0].alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url[0].volume.value + "%\r\n" +
@@ -79,27 +99,28 @@ async function writeBeerInfo(url) {
         "\r\nBrewers tips: " + url[0].brewers_tips + "\r\n" +
         "\r\nDescription: " + url[0].description
     )
+    /* Description
+Image
+Alcohol by volume
+Volume
+Ingredients
+Hops
+Food pairing
+Brewers tips */
 
-    writeBox.appendChild(writeBoxInfo);
-    createImage(url, writeBeerInfo)
+    writebox.appendChild(writeboxinfo);
+    createimage(url, writeBeerInfo)
 }
 
-async function createImage(url, location) {
-    
-    let imageLocation = document.querySelector("." + location);
+async function createimage(url, location) {
+    let imagelocation = document.querySelector("." + location);
     let img = document.createElement("IMG");
     img.classList.add(location + "img");
-    imageLocation.appendChild(img);
+    img.src = url[0].image_url;
     img.height = 400;
     img.width = 200;
-
-    if (url[0].image_url == null){
-
-        imageLocation.innerText = "Ölen ville tyvärr inte vara med på bild. Tack för visad förståelse.";
-    } else {
-
-        img.src = url[0].image_url;
-    }
+    imagelocation.appendChild(img);
+    
 }
 
 async function ingredients(url) {
@@ -124,7 +145,6 @@ async function ingredients(url) {
     console.log("what?")
     
 }
-
 
 
 
@@ -158,13 +178,3 @@ async function ingredients(url) {
   
   // Grab a new beer when clicking the button
   document.getElementById("grabButton").addEventListener("click", grabRandomBeer); */
-
-
-      /* Description
-Image
-Alcohol by volume
-Volume
-Ingredients
-Hops
-Food pairing
-Brewers tips */

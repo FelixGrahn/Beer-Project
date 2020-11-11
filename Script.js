@@ -1,21 +1,19 @@
 
-
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
     .then(url => {
-        removebox();
+        removeBox();
         console.log(url)
         /* console.log(log[0].ingredients[0].hops[0]) */
         /* writeBeerInfo(url) */
         createCard(url);
-        
     } );
 }
 
 async function fetchBeer(number){ /* to be continued */
 
-    removebox();
+    removeBox();
 
     fetch("https://api.punkapi.com/v2/beers/" + number)
     .then(response => response.json())
@@ -31,24 +29,22 @@ async function fetchBeer(number){ /* to be continued */
 
 async function createCard(url){
 
-    let writebox = document.querySelector(".BeerInfoContainer");
-    let writeboxinfo = document.createElement("section");
-    writeboxinfo.setAttribute("id", "RemoveChild");
-    writeboxinfo.classList.add("cardcreateinfo");
-    writeboxinfo.innerText = (url[0].name + "\r\n");
+    let writeBox = document.querySelector(".BeerInfoContainer");
+    let writeBoxInfo = document.createElement("section");
+    writeBoxInfo.setAttribute("id", "RemoveChild");
+    writeBoxInfo.classList.add("cardcreateinfo");
+    writeBoxInfo.innerText = (url[0].name + "\r\n");
 
-    writeboxinfo.addEventListener("click", function(){
+    writeBoxInfo.addEventListener("click", function(){
 
         writeBeerInfo(url);
     })    
-
   
-    writebox.appendChild(writeboxinfo);
-    createimage(url, "cardcreateinfo")
+    writeBox.appendChild(writeBoxInfo);
+    createImage(url, "cardcreateinfo")
 }
 
-
-async function removebox() {
+async function removeBox() {
 
     let ExistensChecker = document.getElementById("RemoveChild");
     let ExistensChecker2 = document.getElementById("Parent");
@@ -65,15 +61,15 @@ async function removebox() {
 }
 
 async function writeBeerInfo(url) {
-    removebox();
+    removeBox();
 
-    let writebox = document.querySelector(".BeerInfoContainer");
-    let writeboxinfo = document.createElement("section");
-    writeboxinfo.setAttribute("id", "RemoveChild");
-    writeboxinfo.classList.add("writeBeerInfo");
+    let writeBox = document.querySelector(".BeerInfoContainer");
+    let writeBoxInfo = document.createElement("section");
+    writeBoxInfo.setAttribute("id", "RemoveChild");
+    writeBoxInfo.classList.add("writeBeerInfo");
     
     /* ingredients(url) */
-    writeboxinfo.innerText = (
+    writeBoxInfo.innerText = (
         url[0].name + "\r\n" +
         "\r\nAlcohol by volume: " + url[0].alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url[0].volume.value + "%\r\n" +
@@ -84,23 +80,22 @@ async function writeBeerInfo(url) {
         "\r\nDescription: " + url[0].description
     )
 
-    writebox.appendChild(writeboxinfo);
-    createimage(url, writeBeerInfo)
+    writeBox.appendChild(writeBoxInfo);
+    createImage(url, writeBeerInfo)
 }
 
-async function createimage(url, location) {
-
-    let imagelocation = document.querySelector("." + location);
+async function createImage(url, location) {
+    
+    let imageLocation = document.querySelector("." + location);
     let img = document.createElement("IMG");
     img.classList.add(location + "img");
-    imagelocation.appendChild(img);
+    imageLocation.appendChild(img);
     img.height = 400;
     img.width = 200;
 
     if (url[0].image_url == null){
 
-        imagelocation.innerText = "Ölen ville tyvärr inte vara med på bild. Tack för visad förståelse.";
-
+        imageLocation.innerText = "Ölen ville tyvärr inte vara med på bild. Tack för visad förståelse.";
     } else {
 
         img.src = url[0].image_url;
@@ -163,3 +158,13 @@ async function ingredients(url) {
   
   // Grab a new beer when clicking the button
   document.getElementById("grabButton").addEventListener("click", grabRandomBeer); */
+
+
+      /* Description
+Image
+Alcohol by volume
+Volume
+Ingredients
+Hops
+Food pairing
+Brewers tips */

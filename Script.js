@@ -16,6 +16,7 @@ async function RandomNumber() {
     .then(url => {
         removebox();
         console.log(url)
+        /* console.log(log[0].ingredients[0].hops[0]) */
         /* writeBeerInfo(url) */
         createCard(url);
         

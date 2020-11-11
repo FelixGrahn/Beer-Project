@@ -1,15 +1,4 @@
 
-/* LOUIES UPPGIFT:
- contentContainer
- Bild åt vänster
- Titel, högt upp höger om bild
- Länk, nere i högra hörnet */
-
-// Hhej
-
-
-
-
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
@@ -35,7 +24,7 @@ async function fetchBeer(number){ /* to be continued */
         console.log(url[0].description)
         console.log(url[0].image_url)
         console.log(url[0].name) */
-        createCard(url)
+        createCard(url);
     } );
 }
 
@@ -114,13 +103,30 @@ Brewers tips */
 
 async function createimage(url, location) {
     let imagelocation = document.querySelector("." + location);
-    let img = document.createElement("IMG");
+    let img;    
+
+    if (url[0].image_url != null){
+
+        img = document.createElement("IMG");
+        img.src = url[0].image_url;
+        img.height = 400;
+        img.width = 200;
+
+        console.log("If: " + img)
+
+    } else{
+
+        img = document.createElement("section");
+        img.height = 400;
+        img.width = 200;
+
+        img.innerText = "No picture available";
+    }
+
+    console.log("Efter if/else: " + img)
+
+    imagelocation.appendChild(img); 
     img.classList.add(location + "img");
-    img.src = url[0].image_url;
-    img.height = 400;
-    img.width = 200;
-    imagelocation.appendChild(img);
-    
 }
 
 async function ingredients(url) {

@@ -41,7 +41,7 @@ async function fetchBeer(number){ /* to be continued */
 
 async function createCard(url){ // LOUIES UPPGIFT
 
-    let writebox = document.querySelector(".BeerInfoContainer");
+    let writebox = document.querySelector(".BeerCardContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
     writeboxinfo.classList.add("cardcreateinfo");

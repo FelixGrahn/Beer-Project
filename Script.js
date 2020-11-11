@@ -39,7 +39,7 @@ async function fetchBeer(number){ /* to be continued */
     } );
 }
 
-async function createCard(url){ // LOUIES UPPGIFT
+async function createCard(url){
 
     let writebox = document.querySelector(".BeerCardContainer");
     let writeboxinfo = document.createElement("section");

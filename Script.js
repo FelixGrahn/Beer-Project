@@ -67,7 +67,7 @@ async function createCard(url){ // LOUIES UPPGIFT
 async function removebox() {
 
     let ExistensChecker = document.getElementById("RemoveChild");
-    let ExistensChecker2 = document.getElementById("Parent");
+    let ExistensChecker2 = document.getElementById("Parent1");
 
     if (ExistensChecker) {
 

@@ -70,6 +70,7 @@ async function createCard(url){
 
 
         writeBeerInfo(url);
+        window.location.href("Info.html");
 
         console.log("XXXXXXXXXXXXX")
     })    

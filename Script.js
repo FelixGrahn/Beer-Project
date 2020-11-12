@@ -1,4 +1,4 @@
-/*comment*/
+
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
@@ -26,6 +26,8 @@ async function RandomNumber() {
 // Sökfunktionen:
 //      länka form till fetchBeer
 //      beer_ + beer (kanske med ett slash på slutet)
+
+
 const Beer2 ="Sunk_Punk"; 
 fetchBeer(Beer2);
 async function fetchBeer(beer){ /* to be continued */
@@ -80,8 +82,6 @@ async function createCard(url){
     createimage(url, "cardcreateinfo")
 }
 
-// inte bilden, titeln, eventet som kallar en funktion
-"skapa objektet med kort och namn"
 
 
 async function removebox() {

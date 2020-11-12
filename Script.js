@@ -26,26 +26,37 @@ async function RandomNumber() {
 // Sökfunktionen:
 //      länka form till fetchBeer
 //      beer_ + beer (kanske med ett slash på slutet)
-
-
+const Beer2 ="Sunk_Punk"; 
+fetchBeer(Beer2);
 async function fetchBeer(beer){ /* to be continued */
-
-/*  let searchedBeer = document.querySelector(".gsearch");
-    console.log(searchedBeer) */
+let searchedBeer = document.querySelector(".gsearch");
+    console.log(searchedBeer) 
 
     removebox();
 
-    fetch("https://api.punkapi.com/v2/beers/" + beer)
+    fetch("https://api.punkapi.com/v2/beers?beer_name=" + beer )
     .then(response => response.json())
     .then(url => {
 
-/*      console.log(url)
+        console.log(url)
         console.log(url[0].description)
         console.log(url[0].image_url)
-        console.log(url[0].name) */
-        createCard(url);
+        console.log(url[0].name) 
+       /* createCard(url);*/
+        
     } );
 }
+
+/*ny async funktion*/
+async function fetchSearchedBeer(){ 
+    let input = document.querySelector('gsearch');
+    console.log('input.value');
+    
+    
+   
+    }
+
+
 
 async function createCard(url){
 

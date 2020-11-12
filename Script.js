@@ -12,11 +12,30 @@ async function RandomNumber() {
     } );
 }
 
-async function fetchBeer(number){ /* to be continued */
+
+
+// Ingredienser:
+//      let-funktion = url.ingrediens
+//      extrahera objektet
+
+
+// Texterna som försvann igår: 
+//      Felix löser
+
+
+// Sökfunktionen:
+//      länka form till fetchBeer
+//      beer_ + beer (kanske med ett slash på slutet)
+
+
+async function fetchBeer(beer){ /* to be continued */
+
+/*  let searchedBeer = document.querySelector(".gsearch");
+    console.log(searchedBeer) */
 
     removebox();
 
-    fetch("https://api.punkapi.com/v2/beers/" + number)
+    fetch("https://api.punkapi.com/v2/beers/" + beer)
     .then(response => response.json())
     .then(url => {
 
@@ -146,10 +165,9 @@ async function ingredients(url) {
         else {
             console.log("something has gone wrong in the ingredients loop")
         }
-        
     }
+
     console.log("what?")
-    
 }
 
 

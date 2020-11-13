@@ -169,9 +169,15 @@ async function writeBeerInfo() {
         
         console.log(currentHops.name)
 
-        hopsString += "\r\nhops ingredients " + i + " " + currentHops.name + "/r/n";
-        /* hopsString.concat("\r\nhops ingredients " , i , " " , currentHops.name , "/r/n"); */
+        hopsString += "\r\nhops ingredients " + i + " " + currentHops.name;
     }
+    /* for (let i = 0; i < hops.length; i++) {
+        const currentHops = hops[i];
+        
+        console.log(currentHops.name)
+
+        hopsString += "\r\nHops ingredients " + i + " " + currentHops.name;
+    } */
 
 
 
@@ -186,7 +192,7 @@ async function writeBeerInfo() {
         "\r\nAlcohol by volume: " + url.alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url.volume.value + "%\r\n" +
         "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
-        hopsString +
+        hopsString + "\r\n" +
         "\r\nFood pairing: " + url.food_pairing + "\r\n" +
         "\r\nBrewers tips: " + url.brewers_tips + "\r\n" +
         "\r\nDescription: " + url.description

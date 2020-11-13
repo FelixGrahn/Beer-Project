@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="Style.css">
-    <script type="text/javascript" src="Script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Style.css">
+  <script type="text/javascript" src="Script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-<main class="main-container">
-    
-        <div class="grid-item">
-          <div class="input-box">
-              <h1>BEER PROJECT</h1>
-              <button class="RandomBeerButton" onclick="RandomNumber()">RANDOM</button>
-              <li><a href="Info.html">Info</a></li>
-              <footer class="BeerPagePicker"><button id="demo" onclick="SubtractToList()">◁</button> <h3 id="FooterListCurrentPage"></h3> <button onclick="AddToList()">▷</button></footer>
-          </div>
-          
-            <form>
-              <!-- <label for="gsearch"></label>
-              <input type="search" class="gsearch" name="gsearch">
-              <input type="submit" onclick="fetchSearchedBeer()"> -->
-              <textarea id="area1" rows="5">Test1</textarea>
-              <input type="button" value="get txt" onclick="fetchBeer()"/>
-            </form>
-          </div>     
-        <div class="grid-item-2">
-          <p class="item-box" >
-            <section class="BeerCardContainer" id="Parent1"></section> 
-          </p>
-        </div>
-        
-        
+  <main class="main-container">
 
+    <div class="grid-item">
+      <div class="input-box">
+        <h1>BEER PROJECT</h1>
+        <button class="RandomBeerButton" onclick="RandomNumber()">RANDOM</button>
+        <footer class="BeerPagePicker"><button id="demo" onclick="SubtractToList()">◁</button>
+          <h3 id="FooterListCurrentPage"></h3> <button onclick="AddToList()">▷</button>
+        </footer>
+      </div>
 
-</main>
-   
+      <form>
+        <textarea id="area1" rows="5">Test1</textarea>
+        <input type="button" value="get txt" onclick="fetchBeer()" />
+      </form>
+    </div>
+    <div class="grid-item-2">
+      <p class="item-box">
+      <section class="BeerCardContainer" id="Parent1"></section>
+      </p>
+    </div>
+  </main>
 </body>
 </html>

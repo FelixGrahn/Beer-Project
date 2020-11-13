@@ -2,7 +2,6 @@
   margin: 0%;
 }
 
-
 body {
   background-color:#dcdcdc;
   padding: 2%;
@@ -15,12 +14,8 @@ body {
   width: 90%;
   margin: auto;
   height: 67.500em;
-  /* -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset; */
-
-       box-shadow: 0px 0px 6px 2px grey;
-       border-radius: 1.563em;  
+  box-shadow: 0px 0px 6px 2px grey;
+  border-radius: 1.563em;  
 }
 
 .RandomBeerButton {
@@ -30,16 +25,13 @@ body {
   width: 40%;
   
 }
-  
 
 h1 {
     justify-content: center;
     display: flex;
-
 }
 
   .input-box {
-    /* background-color: white; */
     height: 20%;
     display: flex;
     justify-content: center;
@@ -71,7 +63,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-content: center;
-    /* height: 5%; */
   }
   
   .grid-item-2 {
@@ -93,11 +84,7 @@ h1 {
 
   .BeerInfoContainer {
     display: flex;
-    /* justify-content: center;
-    align-content: center; */
-    /* width: 50%;
-    height: 50%; */
-    /* border: 2px solid black; */
+    padding: 10%;
   }
 
   .RemoveChild {
@@ -115,20 +102,12 @@ h1 {
   .cardcreateinfo {
     border: 2px solid black;
     padding: 3%;
-/*     max-height: 100%;
-    margin-left:   5px;
-    margin-right:  5px;
-    margin-top:    10px;
-    margin-bottom: 10px; */
-
     border-radius: 1.563em;    
     background: #f8f6f3;
     text-decoration: underline;
-
     display: flex;
     align-items: center;
     flex-direction: column;
-
     width: 33%;
     height: 33%;
     min-height: 10em;
@@ -140,7 +119,6 @@ h1 {
   .cardcreateinfoimg {
     width: 40%;
     height: 40%;
-
     max-height: 12.25em;
     max-width: 12.75em;
   }

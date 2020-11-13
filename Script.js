@@ -161,7 +161,9 @@ async function writeBeerInfo() {
     let url = JSON.parse(localStorage.getItem("currentBeer"));
 
     let hopsString = "";
+    let hopsMalt = "";
     let hops = url.ingredients.hops;
+    let malt = url.ingredients.malt;
 
 
     for (let i = 0; i < hops.length; i++) {
@@ -169,15 +171,15 @@ async function writeBeerInfo() {
         
         console.log(currentHops.name)
 
-        hopsString += "\r\nhops ingredients " + i + " " + currentHops.name;
-    }
-    /* for (let i = 0; i < hops.length; i++) {
-        const currentHops = hops[i];
-        
-        console.log(currentHops.name)
-
         hopsString += "\r\nHops ingredients " + i + " " + currentHops.name;
-    } */
+    }
+    for (let i = 0; i < malt.length; i++) {
+        const currentmalt = malt[i];
+        
+        console.log(currentmalt.name)
+
+        hopsMalt += "\r\nMalt ingredients " + i + " " + currentmalt.name;
+    }
 
 
 
@@ -192,7 +194,7 @@ async function writeBeerInfo() {
         "\r\nAlcohol by volume: " + url.alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url.volume.value + "%\r\n" +
         "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
-        hopsString + "\r\n" +
+        hopsString + "\r\n" + hopsMalt +"\r\n" +
         "\r\nFood pairing: " + url.food_pairing + "\r\n" +
         "\r\nBrewers tips: " + url.brewers_tips + "\r\n" +
         "\r\nDescription: " + url.description

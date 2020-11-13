@@ -160,8 +160,18 @@ async function writeBeerInfo() {
 
     let url = JSON.parse(localStorage.getItem("currentBeer"));
 
+    let hopsString = "";
+    let hops = url.ingredients.hops;
 
-    console.log(url)
+
+    for (let i = 0; i < hops.length; i++) {
+        const currentHops = hops[i];
+        
+        console.log(currentHops.name)
+
+        hopsString + "\r\nhops ingredients " + i + " " + currentHops.name + "/r/n";
+    }
+
 
 
     let writebox = document.querySelector(".BeerInfoContainer");
@@ -175,7 +185,7 @@ async function writeBeerInfo() {
         "\r\nAlcohol by volume: " + url.alcohol_by_volume + "\r\n" +
         "\r\nVolume: " + url.volume.value + "%\r\n" +
         "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
-        "\r\nHops: " + url.hops + "\r\n" +
+        hopsString +
         "\r\nFood pairing: " + url.food_pairing + "\r\n" +
         "\r\nBrewers tips: " + url.brewers_tips + "\r\n" +
         "\r\nDescription: " + url.description

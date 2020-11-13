@@ -46,7 +46,7 @@ h1 {
     align-content: center;
     flex-direction: column;
     align-items: center;
-
+    justify-content: space-evenly;
   }
 
   form {
@@ -114,7 +114,7 @@ h1 {
 
   .cardcreateinfo {
     border: 2px solid black;
-    padding: 1%;
+    padding: 3%;
 /*     max-height: 100%;
     margin-left:   5px;
     margin-right:  5px;
@@ -148,4 +148,8 @@ h1 {
   .BeerCardContainer {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .BeerPagePicker {
+    display: flex;
   }

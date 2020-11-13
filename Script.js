@@ -13,6 +13,23 @@ async function RandomNumber() {
 }
 
 
+var please =+ 1;
+function AddToList() {
+    please++;
+    console.log(please)
+    /* FetchApi(please) */
+    fetchBeer(please);
+}
+function SubtractToList() {
+    please--;
+    if(please<0){
+        please = 1;
+    }
+    console.log(please)
+    /* FetchApi(please) */
+    fetchBeer(please);
+    
+}
 
 
 // Ingredienser:
@@ -32,23 +49,30 @@ async function RandomNumber() {
 /* const Beer2 ="Sunk_Punk"; 
 fetchBeer(Beer2); */
 
-async function fetchBeer(){ /* to be continued */
+async function fetchBeer(pagecount){ /* to be continued */
 /* let searchedBeer = document.querySelector(".gsearch"); */
     var c1 = document.getElementById('area1').value;
     console.log(c1) 
-    
+    document.getElementById("FooterListCurrentPage").innerHTML = pagecount;
 
     removebox();
 
     fetch("https://api.punkapi.com/v2/beers?beer_name=" + c1 )
     .then(response => response.json())
     .then(url => {
-        const beerloopcounter = url.length;
-        console.log(beerloopcounter);
-        console.log(url[beerloopcounter - 1])
+        const beerloopcountermax = url.length;
+        const beerloopcountermin = 0;
+        console.log(beerloopcountermax);
+        console.log(url[beerloopcountermax - 1])
+        
         for (let index = 0; index < 9; index++) {
-           console.log(url[index])
+
+            if (beerloopcountermax == beerloopcountermin) {
+                break;
+            }
+           console.log(url[beerloopcountermin])
            createCard(url[index])
+           beerloopcountermin+1;
             
         }
 
@@ -149,7 +173,7 @@ async function createimage(url, location) {
     let imagelocation = document.querySelector("." + location);
     let img;    
 
-    if (url[0].image_url != null){
+    if (url/* [0] */.image_url != null){ /* Big red flag need to fix does work with search but not with random beacuse of the [0] */
 
         img = document.createElement("IMG");
         img.src = url/* [0] */.image_url;/* Big red flag need to fix does work with search but not with random beacuse of the [0] */

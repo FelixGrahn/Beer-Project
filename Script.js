@@ -1,10 +1,13 @@
 
+// Write Beer info se ut som att den tar emot en url-parameter.
+// Men när vi kallar den så skickar vi inte in någon url. Hur funkar det?
+
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
     .then(url => {
         removebox();
-        console.log(url)
+        console.log("TITTA HÄR 2: " + url)
         /* console.log(log[0].ingredients[0].hops[0]) */
         /* writeBeerInfo(url) */
         createCard(url[0]);
@@ -55,7 +58,6 @@ fetchBeer(Beer2); */
 
 async function fetchBeer(pagecount){ /* to be continued */
 
-    let loiVar = 0;
     let c1 = document.getElementById('area1').value;
     console.log(c1) 
     document.getElementById("FooterListCurrentPage").innerHTML = pagecount;
@@ -74,7 +76,8 @@ async function fetchBeer(pagecount){ /* to be continued */
         const beerloopcountermin = 0;
         console.log(beerloopcountermax);
         console.log(url[beerloopcountermax])
-        
+        console.log("TITTA HÄR 3: " + url)
+
         for (let index = currentpage; index < currentpage + 9; index++) {
            console.log(url[index])
            
@@ -116,10 +119,13 @@ async function createCard(url, loopCount){
 
     writeboxinfo.addEventListener("click", function(){
 
+        localStorage.setItem("currentBeer", JSON.stringify(url));
+    
         /* writeBeerInfo(url); */
-        infoBuffer = url;
+/*         infoBuffer = url[0]; */
+        console.log("TJOLAHOPP! " + infoBuffer)
 
-        window.location.href("Info.html");
+        window.location.pathname = "/Info.html";
 
         console.log("XXXXXXXXXXXXX")
     })    
@@ -128,6 +134,8 @@ async function createCard(url, loopCount){
     writebox.appendChild(writeboxinfo);
     createimage(url, "cardcreateinfo", "cardcreateinfo" + loopCount) // mål för kod //
 }
+
+
 
 
 async function removebox() {
@@ -147,9 +155,14 @@ async function removebox() {
 }
 
 
-async function writeBeerInfo(url) {
+async function writeBeerInfo() {
 /*     removebox(); */
-console.log("automatic success")
+
+    let url = JSON.parse(localStorage.getItem("currentBeer"));
+
+
+    console.log(url)
+
 
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
@@ -158,14 +171,14 @@ console.log("automatic success")
     
     /* ingredients(url) */
     writeboxinfo.innerText = (
-        url[0].name + "\r\n" +
-        "\r\nAlcohol by volume: " + url[0].alcohol_by_volume + "\r\n" +
-        "\r\nVolume: " + url[0].volume.value + "%\r\n" +
+        url.name + "\r\n" +
+        "\r\nAlcohol by volume: " + url.alcohol_by_volume + "\r\n" +
+        "\r\nVolume: " + url.volume.value + "%\r\n" +
         "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
-        "\r\nHops: " + url[0].hops + "\r\n" +
-        "\r\nFood pairing: " + url[0].food_pairing + "\r\n" +
-        "\r\nBrewers tips: " + url[0].brewers_tips + "\r\n" +
-        "\r\nDescription: " + url[0].description
+        "\r\nHops: " + url.hops + "\r\n" +
+        "\r\nFood pairing: " + url.food_pairing + "\r\n" +
+        "\r\nBrewers tips: " + url.brewers_tips + "\r\n" +
+        "\r\nDescription: " + url.description
     )
     /* Description
 Image
@@ -180,7 +193,7 @@ Brewers tips */
 
 
     writebox.appendChild(writeboxinfo);
-    createimage(url, writeBeerInfo)
+    createimage(url)
 }
 
 async function createimage(url, className, location) {

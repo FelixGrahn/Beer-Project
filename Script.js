@@ -43,8 +43,17 @@ async function fetchBeer(){ /* to be continued */
     fetch("https://api.punkapi.com/v2/beers?beer_name=" + c1 )
     .then(response => response.json())
     .then(url => {
+        const beerloopcounter = url.length;
+        console.log(beerloopcounter);
+        console.log(url[beerloopcounter - 1])
+        for (let index = 0; index < 9; index++) {
+           console.log(url[index])
+           createCard(url[index])
+            
+        }
 
         console.log(url)
+        
 /*         console.log(url[0].description)
         console.log(url[0].image_url)
         console.log(url[0].name)  */
@@ -70,7 +79,7 @@ async function createCard(url){
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
     writeboxinfo.classList.add("cardcreateinfo");
-    writeboxinfo.innerText = (url[0].name + "\r\n")
+    writeboxinfo.innerText = (url/* [0] */.name + "\r\n") /* Big red flag need to fix does work with search but not with random beacuse of the [0] */
 
     writeboxinfo.addEventListener("click", function(){
 
@@ -143,7 +152,8 @@ async function createimage(url, location) {
     if (url[0].image_url != null){
 
         img = document.createElement("IMG");
-        img.src = url[0].image_url;
+        img.src = url/* [0] */.image_url;/* Big red flag need to fix does work with search but not with random beacuse of the [0] */
+
         img.height = 400;
         img.width = 200;
 

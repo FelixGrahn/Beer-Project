@@ -144,3 +144,8 @@ h1 {
     max-height: 12.25em;
     max-width: 12.75em;
   }
+
+  .BeerCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }

@@ -169,7 +169,8 @@ async function writeBeerInfo() {
         
         console.log(currentHops.name)
 
-        hopsString + "\r\nhops ingredients " + i + " " + currentHops.name + "/r/n";
+        hopsString += "\r\nhops ingredients " + i + " " + currentHops.name + "/r/n";
+        /* hopsString.concat("\r\nhops ingredients " , i , " " , currentHops.name , "/r/n"); */
     }
 
 

@@ -14,6 +14,7 @@ async function RandomNumber() {
 
 
 
+
 // Ingredienser:
 //      let-funktion = url.ingrediens
 //      extrahera objektet
@@ -28,22 +29,25 @@ async function RandomNumber() {
 //      beer_ + beer (kanske med ett slash på slutet)
 
 
-const Beer2 ="Sunk_Punk"; 
-fetchBeer(Beer2);
-async function fetchBeer(beer){ /* to be continued */
-let searchedBeer = document.querySelector(".gsearch");
-    console.log(searchedBeer) 
+/* const Beer2 ="Sunk_Punk"; 
+fetchBeer(Beer2); */
+
+async function fetchBeer(){ /* to be continued */
+/* let searchedBeer = document.querySelector(".gsearch"); */
+    var c1 = document.getElementById('area1').value;
+    console.log(c1) 
+    
 
     removebox();
 
-    fetch("https://api.punkapi.com/v2/beers?beer_name=" + beer )
+    fetch("https://api.punkapi.com/v2/beers?beer_name=" + c1 )
     .then(response => response.json())
     .then(url => {
 
         console.log(url)
-        console.log(url[0].description)
+/*         console.log(url[0].description)
         console.log(url[0].image_url)
-        console.log(url[0].name) 
+        console.log(url[0].name)  */
        /* createCard(url);*/
         
     } );

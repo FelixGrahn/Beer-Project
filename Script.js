@@ -8,7 +8,7 @@ async function RandomNumber() {
         console.log(url)
         /* console.log(log[0].ingredients[0].hops[0]) */
         /* writeBeerInfo(url) */
-        createCard(url);
+        createCard(url[0]);
         
     } );
 }
@@ -19,6 +19,7 @@ var please =+ 1;
 function AddToList() {
     please++;
     console.log(please)
+    /* pagecount = please * 9; */
     /* FetchApi(please) */
     fetchBeer(please);
 }
@@ -27,6 +28,7 @@ function SubtractToList() {
     if(please<0){
         please = 1;
     }
+    /* pagecount = please * 9; */
     console.log(please)
     /* FetchApi(please) */
     fetchBeer(please);
@@ -57,6 +59,11 @@ async function fetchBeer(pagecount){ /* to be continued */
     let c1 = document.getElementById('area1').value;
     console.log(c1) 
     document.getElementById("FooterListCurrentPage").innerHTML = pagecount;
+    
+    let currentpage = 0;
+    if (pagecount > 1) {
+        currentpage = pagecount;
+    }
 
     removebox();
 
@@ -66,17 +73,14 @@ async function fetchBeer(pagecount){ /* to be continued */
         const beerloopcountermax = url.length;
         const beerloopcountermin = 0;
         console.log(beerloopcountermax);
-        console.log(url[beerloopcountermax - 1])
+        console.log(url[beerloopcountermax])
         
-        for (let index = 0; index < 9; index++) {
-
-            if (beerloopcountermax == beerloopcountermin) {
-                break;
-            }
-            console.log(url[beerloopcountermin])
-
-            /* beerloopcountermin =+ 1; */
-            createCard(url[index], index)
+        for (let index = currentpage; index < currentpage + 9; index++) {
+           console.log(url[index])
+           
+           createCard(url[index], index)
+           /* beerloopcountermin+1; */
+            
         }
 
         console.log(url)   

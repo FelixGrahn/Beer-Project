@@ -1,5 +1,4 @@
 
-
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
@@ -14,8 +13,9 @@ async function RandomNumber() {
 }
 
 
-
+var infoBuffer; // LOIS KOD
 var please =+ 1;
+
 function AddToList() {
     please++;
     console.log(please)
@@ -116,11 +116,14 @@ async function createCard(url, loopCount){
 
     writeboxinfo.addEventListener("click", function(){
 
-        writeBeerInfo(url);
+        /* writeBeerInfo(url); */
+        infoBuffer = url;
+
         window.location.href("Info.html");
 
         console.log("XXXXXXXXXXXXX")
     })    
+
 
     writebox.appendChild(writeboxinfo);
     createimage(url, "cardcreateinfo", "cardcreateinfo" + loopCount) // mål för kod //
@@ -145,7 +148,8 @@ async function removebox() {
 
 
 async function writeBeerInfo(url) {
-    removebox();
+/*     removebox(); */
+console.log("automatic success")
 
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");

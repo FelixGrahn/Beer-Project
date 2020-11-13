@@ -1,4 +1,5 @@
 
+
 async function RandomNumber() {
     fetch("https://api.punkapi.com/v2/beers/random")
     .then(response => response.json())
@@ -11,6 +12,7 @@ async function RandomNumber() {
         
     } );
 }
+
 
 
 var please =+ 1;
@@ -50,8 +52,9 @@ function SubtractToList() {
 fetchBeer(Beer2); */
 
 async function fetchBeer(pagecount){ /* to be continued */
-/* let searchedBeer = document.querySelector(".gsearch"); */
-    var c1 = document.getElementById('area1').value;
+
+    let loiVar = 0;
+    let c1 = document.getElementById('area1').value;
     console.log(c1) 
     document.getElementById("FooterListCurrentPage").innerHTML = pagecount;
 
@@ -70,43 +73,44 @@ async function fetchBeer(pagecount){ /* to be continued */
             if (beerloopcountermax == beerloopcountermin) {
                 break;
             }
-           console.log(url[beerloopcountermin])
-           createCard(url[index])
-           beerloopcountermin+1;
-            
+            console.log(url[beerloopcountermin])
+
+            /* beerloopcountermin =+ 1; */
+            createCard(url[index], index)
         }
 
-        console.log(url)
-        
-/*         console.log(url[0].description)
-        console.log(url[0].image_url)
-        console.log(url[0].name)  */
-       /* createCard(url);*/
-        
+        console.log(url)   
     } );
 }
 
-/*ny async funktion*/
-async function fetchSearchedBeer(){ 
-    let input = document.querySelector('gsearch');
-    console.log('input.value');
-    
-    
-   
-    }
+
+// beerloop.. in i createCard (måste skapa öppen veriabel)
+
+// Skapa en klass.list.add "position + beerloopCount number"'
+// skicka in det i create Image??
+
+// lägg till createInfo
+// plussa på nummret från carloop
+// "cardcreateinfo X " (x= indexnummer)
+// skicka url, klassnamn och nummer?
+// i create card skicka "cardcreateinfo + nummret från loop (count)"
 
 
+async function createCard(url, loopCount){
 
-async function createCard(url){
+
+     // skapa klass som är samma som index
+     // skriv ut bilden i element med den kalssen
+     
 
     let writebox = document.querySelector(".BeerCardContainer");
     let writeboxinfo = document.createElement("section");
     writeboxinfo.setAttribute("id", "RemoveChild");
+    writeboxinfo.classList.add("cardcreateinfo" + loopCount);
     writeboxinfo.classList.add("cardcreateinfo");
     writeboxinfo.innerText = (url/* [0] */.name + "\r\n") /* Big red flag need to fix does work with search but not with random beacuse of the [0] */
 
     writeboxinfo.addEventListener("click", function(){
-
 
         writeBeerInfo(url);
         window.location.href("Info.html");
@@ -114,11 +118,9 @@ async function createCard(url){
         console.log("XXXXXXXXXXXXX")
     })    
 
-    
     writebox.appendChild(writeboxinfo);
-    createimage(url, "cardcreateinfo")
+    createimage(url, "cardcreateinfo", "cardcreateinfo" + loopCount) // mål för kod //
 }
-
 
 
 async function removebox() {
@@ -136,6 +138,7 @@ async function removebox() {
         console.log("The object has not been found")
     }
 }
+
 
 async function writeBeerInfo(url) {
     removebox();
@@ -165,11 +168,14 @@ Hops
 Food pairing
 Brewers tips */
 
+// lägg till klassen
+
+
     writebox.appendChild(writeboxinfo);
     createimage(url, writeBeerInfo)
 }
 
-async function createimage(url, location) {
+async function createimage(url, className, location) {
     let imagelocation = document.querySelector("." + location);
     let img;    
 
@@ -195,7 +201,7 @@ async function createimage(url, location) {
     console.log("Efter if/else: " + img)
 
     imagelocation.appendChild(img); 
-    img.classList.add(location + "img");
+    img.classList.add(className + "img");
 }
 
 async function ingredients(url) {

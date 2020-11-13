@@ -148,6 +148,7 @@ h1 {
   .BeerCardContainer {
     display: flex;
     flex-wrap: wrap;
+    background-color: black;
   }
 
   .BeerPagePicker {

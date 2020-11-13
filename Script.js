@@ -181,7 +181,7 @@ async function writeBeerInfo() {
         hopsMalt += "\r\nMalt ingredients " + i + " " + currentmalt.name;
     }
 
-
+    console.log(url.abv)
 
     let writebox = document.querySelector(".BeerInfoContainer");
     let writeboxinfo = document.createElement("section");
@@ -191,7 +191,7 @@ async function writeBeerInfo() {
     /* ingredients(url) */
     writeboxinfo.innerText = (
         url.name + "\r\n" +
-        "\r\nAlcohol by volume: " + url.alcohol_by_volume + "\r\n" +
+        "\r\nAlcohol by volume: " + url.abv + "\r\n" +
         "\r\nVolume: " + url.volume.value + "%\r\n" +
         "\r\nIngredients: " /* + ingredients(url) */ + "\r\n" +
         hopsString + "\r\n" + hopsMalt +"\r\n" +
